@@ -1,0 +1,70 @@
+name: Bug Report
+description: 请详细描述您在使用过程中遇到的问题
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        本项目是 [Sub-Store](https://github.com/sub-store-org/Sub-Store) 在 Android 平台上的封装。
+
+        请确认问题与本项目相关。若问题属于 Sub-Store 本身，请前往 [Sub-Store 仓库](https://github.com/sub-store-org/Sub-Store/issues) 提交 Issue。
+
+        > [!WARNING]
+        > 提交截图、日志或配置前，请将订阅链接、GitHub Token、Gist Token 及其他敏感信息打码。请勿在 Issue 中公开任何可用的凭据。
+
+  - type: textarea
+    id: current-behavior
+    attributes:
+      label: 当前行为
+      description: 请描述实际发生的情况，并附上完整错误信息。
+      placeholder: 实际发生了什么？
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: 预期行为
+      description: 请描述您期望发生的情况。
+      placeholder: 您期望发生什么？
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: 复现步骤
+      description: 请提供能够稳定复现问题的操作步骤。
+      placeholder: |
+        1. 打开……
+        2. 点击……
+        3. 出现……
+    validations:
+      required: true
+
+  - type: input
+    id: android-version
+    attributes:
+      label: Android 版本
+      description: 可在系统设置的“关于手机”中查看。
+      placeholder: 例如：Android 16
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: latest-version
+    attributes:
+      label: 版本确认
+      description: 请确认你使用的是最新版本。
+      options:
+        - label: 我正在使用最新版本的 SubCase
+          required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: 补充信息
+      description: 可上传截图、录屏、日志或其他有助于定位问题的信息。
+      placeholder: 将文件拖到这里上传。
