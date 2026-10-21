@@ -178,7 +178,12 @@ class LoonHostBridge(
         require(method in SUPPORTED_METHODS) { "不支持的 HTTP method: $method" }
         val builder = Request.Builder().url(options.getString("url"))
         val headers = options.optJSONObject("headers")
-        headers?.keys()?.forEach { name -> builder.header(name, headers.optString(name)) }
+        // 压缩协商交给 OkHttp：手动设置 Accept-Encoding 会关闭其透明解压，脚本将收到压缩字节。
+        headers?.keys()?.forEach { name ->
+            if (!name.equals("Accept-Encoding", ignoreCase = true)) {
+                builder.header(name, headers.optString(name))
+            }
+        }
 
         val contentType = headers?.keys()?.asSequence()
             ?.firstOrNull { it.equals("Content-Type", ignoreCase = true) }
